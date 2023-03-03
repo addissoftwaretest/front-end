@@ -13,6 +13,18 @@ interface AlbumStatsType {
   totalSongs: number;
 }
 
+interface APIResponse extends AxiosResponse {
+  data: {
+    statusCode: string;
+    message: string;
+    data: {
+      song?: SongType;
+      songs?: SongType[];
+      stats: SongStatsType;
+    };
+  };
+}
+
 interface SingersStatsType {
   name: string;
   totalSongs: number;

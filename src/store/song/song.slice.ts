@@ -23,10 +23,7 @@ export const songSlice = createSlice({
       state.songs.push(action.payload);
     },
 
-    updateSongStart: (
-      state: SongStateType,
-      action: PayloadAction<Pick<SongType, 'album' | 'artist' | 'genre' | 'title'>>,
-    ) => {
+    updateSongStart: (state: SongStateType, action: PayloadAction<SongType>) => {
       state.isLoading = true;
     },
     updateSongSuccess: (state: SongStateType, action: PayloadAction<SongType>) => {
@@ -72,3 +69,8 @@ export const songSlice = createSlice({
     },
   },
 });
+
+const songReducer = songSlice.reducer;
+const songAction = songSlice.actions;
+
+export {songReducer, songAction};
