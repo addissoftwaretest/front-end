@@ -37,12 +37,13 @@ interface SongStatsType {
   totalSongs: number;
   totalArtists: number;
   totalAlbums: number;
+  totalGenres: number;
   singers: SingersStatsType[];
 }
 
 interface SongStateType {
   songs: SongType[];
   isLoading: boolean;
-  error: string | null;
+  error: any | null;
   stats: SongStatsType | null;
 }

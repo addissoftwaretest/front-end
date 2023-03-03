@@ -23,7 +23,10 @@ export const songSlice = createSlice({
       state.songs.push(action.payload);
     },
 
-    updateSongStart: (state: SongStateType, action: PayloadAction<SongType>) => {
+    updateSongStart: (
+      state: SongStateType,
+      action: PayloadAction<Pick<SongType, '_id' | 'album' | 'artist' | 'genre' | 'title'>>,
+    ) => {
       state.isLoading = true;
     },
     updateSongSuccess: (state: SongStateType, action: PayloadAction<SongType>) => {
@@ -44,7 +47,7 @@ export const songSlice = createSlice({
       state.songs = state.songs.filter((song) => song._id !== action.payload.id);
     },
 
-    getSongStart: (state: SongStateType, action: PayloadAction<{id: string}>) => {
+    getSongStart: (state: SongStateType) => {
       state.isLoading = true;
     },
 
